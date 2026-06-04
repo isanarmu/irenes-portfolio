@@ -177,6 +177,13 @@ export interface About extends BasePageConfig {
       name: string;
       /** Description of studies */
       description: React.ReactNode;
+      /** Optional certificate or study proof images */
+      images?: Array<{
+        src: string;
+        alt: string;
+        width: number;
+        height: number;
+      }>;
     }>;
   };
   /** Technical skills section */

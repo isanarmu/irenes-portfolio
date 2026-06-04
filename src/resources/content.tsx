@@ -1,15 +1,14 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Irene",
+  lastName: "Sánchez",
+  name: `Irene Sánchez`,
+  role: "Full Stack Developer",
+  avatar: "/images/irenes-picture.png",
+  email: "irene.armu99@gmail.com",
+  location: "Europe/Madrid", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
 };
 
 const newsletter: Newsletter = {
@@ -19,37 +18,22 @@ const newsletter: Newsletter = {
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/isanarmu",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/irene-sanchez-armu",
     essential: true,
   },
   {
     name: "Email",
     icon: "email",
-    link: `mailto:${person.email}`,
+    link: "mailto:irene.armu99@gmail.com?subject=Contacto%20desde%20portfolio",
     essential: true,
   },
 ];
@@ -85,7 +69,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, a Full Stack Developer ready for junior backend and full stack roles.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -95,150 +79,128 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "mailto:irene.armu99@gmail.com?subject=Contacto%20desde%20portfolio",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I am a Full Stack Developer with training in Python, Flask, React, JavaScript, and
+        PostgreSQL. Before tech, I worked as Cabin Crew in aviation, logging more than 1,100
+        flight hours in international, high-pressure environments. That experience gave me strong
+        adaptability, communication skills, calm under pressure, and fast problem solving. I am
+        now looking for my first junior opportunity in full stack or backend development.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Volotea",
+        timeframe: "2022–2023 · France",
+        role: "Cabin Crew",
         achievements: [
+          <>Worked in international and high-pressure environments.</>,
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Managed real-time problem solving, customer-facing situations, teamwork, and strict
+            operational procedures.
           </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
-        ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
+          <>1,100+ flight hours.</>,
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "XPO",
+        timeframe: "2021 · Guadalajara, Spain",
+        role: "Warehouse Assistant",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Worked with logistics, inventory control, and operational organization in a
+            high-volume environment.
           </>,
         ],
-        images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "4Geeks Academy",
+        description: <>Full Stack Developer (2025–2026)</>,
+        images: [
+          {
+            src: "/images/gallery/Certificado 4geeks.jpg",
+            alt: "4Geeks Academy certificate",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/gallery/Certificado-Irene-Sanchez-ia.jpg",
+            alt: "AI / development certificate",
+            width: 16,
+            height: 9,
+          },
+        ],
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Centro de Estudios Aeronáuticos ESA Madrid",
+        description: <>Cabin Crew Certificate + Amadeus (2020)</>,
+        images: [],
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Technical Skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
+        title: "Frontend",
+        description: <>React, JavaScript, HTML, CSS, and Bootstrap.</>,
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+          { name: "React" },
+          { name: "JavaScript" },
+          { name: "HTML" },
+          { name: "CSS" },
+          { name: "Bootstrap" },
         ],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
+        title: "Backend",
+        description: <>Python, Flask, REST APIs, JWT, and Socket.IO.</>,
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "Python" },
+          { name: "Flask" },
+          { name: "REST APIs" },
+          { name: "JWT" },
+          { name: "Socket.IO" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+      },
+      {
+        title: "Database",
+        description: <>PostgreSQL, SQL, and SQLAlchemy.</>,
+        tags: [
+          { name: "PostgreSQL" },
+          { name: "SQL" },
+          { name: "SQLAlchemy" },
+        ],
+      },
+      {
+        title: "Tools",
+        description: <>Git, GitHub, VS Code, Postman, and Google Maps API.</>,
+        tags: [
+          { name: "Git" },
+          { name: "GitHub" },
+          { name: "VS Code" },
+          { name: "Postman" },
+          { name: "Google Maps API" },
         ],
       },
     ],
   },
-};
-
-const blog: Blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
 };
 
 const work: Work = {
@@ -301,4 +263,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, work, gallery };

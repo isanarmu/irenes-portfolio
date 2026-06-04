@@ -67,3 +67,141 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+.background-root {
+  position: absolute;
+  inset: 0;
+  z-index: -20;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.background-blobs-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  filter: blur(100px);
+  opacity: 0.5;
+}
+
+.background-blobs-top .background-blob {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.95;
+}
+
+.background-blob.yellow {
+  width: 350px;
+  height: 250px;
+  background: #f59e0b;
+  top: 16%;
+  left: 12%;
+}
+
+.background-blob.orange {
+  width: 360px;
+  height: 260px;
+  background: #f97316;
+  top: 22%;
+  right: 16%;
+}
+
+.background-blob.green {
+  width: 370px;
+  height: 270px;
+  background: #22c55e;
+  top: 34%;
+  left: 44%;
+}
+
+.background-blob.purple {
+  width: 380px;
+  height: 280px;
+  background: #a855f7;
+  top: 12%;
+  left: 54%;
+}
+
+.background-blob.blue {
+  width: 390px;
+  height: 290px;
+  background: #3b82f6;
+  top: 10%;
+  right: 24%;
+}
+
+.background-blob.pink {
+  width: 400px;
+  height: 300px;
+  background: #ec4899;
+  top: 30%;
+  left: 22%;
+}
+
+.background-blobs-main {
+  position: fixed;
+  inset: 0;
+}
+
+.background-blobs-main .background-blob {
+  position: absolute;
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(128px);
+  opacity: 0.4;
+}
+
+.background-blob.main-purple {
+  width: 384px;
+  height: 384px;
+  top: 0;
+  left: -16px;
+  background: #8b5cf6;
+}
+
+.background-blob.main-cyan {
+  width: 384px;
+  height: 384px;
+  top: 0;
+  right: -16px;
+  background: #22d3ee;
+}
+
+.background-blob.main-blue-left {
+  width: 384px;
+  height: 384px;
+  left: 20%;
+  bottom: -8px;
+  background: #3b82f6;
+}
+
+.background-blob.main-blue-right {
+  width: 384px;
+  height: 384px;
+  right: 20px;
+  bottom: -10px;
+  background: #2563eb;
+  opacity: 0.2;
+}
+
+.background-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(79, 79, 79, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(79, 79, 79, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.14;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-blobs-top,
+  .background-blobs-main .background-blob {
+    animation: none;
+  }
+}

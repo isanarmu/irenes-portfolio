@@ -50,6 +50,56 @@ export default function About() {
       items: about.technical.skills.map((skill) => skill.title),
     },
   ];
+  const skillIcons: Record<string, { src: string }> = {
+    HTML: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    },
+    CSS: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    },
+    JavaScript: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+    React: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    Bootstrap: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+    },
+    Python: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    },
+    Flask: {
+      src: "https://img.shields.io/badge/Flask-4B5563?style=flat-square&logo=flask&logoColor=white",
+    },
+    JWT: {
+      src: "https://abhishekganvir.vercel.app/json.png",
+    },
+    PostgreSQL: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    },
+    SQL: {
+      src: "https://symbols.getvecta.com/stencil_27/79_sql-database-generic.494ff6320e.png",
+    },
+    SQLAlchemy: {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/SQLAlchemy.svg/960px-SQLAlchemy.svg.png",
+    },
+    Git: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    },
+    GitHub: {
+      src: "https://freepnglogo.com/images/all_img/github-logo-white-stroke-2a6c.png",
+    },
+    "VS Code": {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+    },
+    Postman: {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+    },
+    "Google Maps API": {
+      src: "https://img.shields.io/badge/Google_Maps_API-2563EB?style=flat-square&logo=googlemaps&logoColor=white",
+    },
+  };
   return (
     <Column maxWidth="m">
       <Schema
@@ -133,12 +183,12 @@ export default function About() {
                 }}
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Schedule a call</Row>
+                <Row paddingX="8">Send me an email</Row>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
                   variant="secondary"
-                  icon="chevronRight"
+                  icon="email"
                 />
               </Row>
             )}
@@ -197,8 +247,50 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column
+              textVariant="body-default-l"
+              fillWidth
+              gap="m"
+              marginBottom="m"
+              style={{ textAlign: "justify" }}
+            >
               {about.intro.description}
+            </Column>
+          )}
+
+          {about.technical.display && (
+            <Column fillWidth gap="8" paddingTop="m" marginBottom="xl">
+              <Heading as="h2" variant="display-strong-s" marginBottom="m">
+                {about.technical.title}
+              </Heading>
+              <Row wrap gap="16" className={styles.skillCategories}>
+                {about.technical.skills.map((skill, index) => (
+                  <Column key={`${skill.title}-${index}`} className={styles.skillCategory} gap="12">
+                    <Text variant="heading-strong-s" marginBottom="4">
+                      {skill.title}
+                    </Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      {skill.description}
+                    </Text>
+                    <Row wrap gap="12" className={styles.skillIcons}>
+                      {skill.tags?.map((tag, tagIndex) => (
+                        <Column key={`${skill.title}-${tagIndex}`} className={styles.skillIcon} gap="8">
+                          {skillIcons[tag.name] ? (
+                            <img
+                              src={skillIcons[tag.name].src}
+                              alt={`${tag.name} icon`}
+                              className={styles.skillIconImage}
+                            />
+                          ) : null}
+                          <Text variant="body-default-s" as="span">
+                            {tag.name}
+                          </Text>
+                        </Column>
+                      ))}
+                    </Row>
+                  </Column>
+                ))}
+              </Row>
             </Column>
           )}
 
@@ -268,52 +360,18 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
+                  <Column key={`${institution.name}-${index}`} fillWidth gap="8" marginBottom="32">
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
-                  </Column>
-                ))}
-              </Column>
-            </>
-          )}
-
-          {about.technical.display && (
-            <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
-                {about.technical.title}
-              </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
+                    {institution.images && institution.images.length > 0 && (
+                      <Row fillWidth marginTop="20" gap="20" wrap>
+                        {institution.images.map((image, imageIndex) => (
                           <Row
-                            key={index}
+                            key={`${institution.name}-image-${imageIndex}`}
                             border="neutral-medium"
                             radius="m"
                             minWidth={image.width}
@@ -322,6 +380,8 @@ export default function About() {
                             <Media
                               enlarge
                               radius="m"
+                              aspectRatio="16 / 9"
+                              objectFit="contain"
                               sizes={image.width.toString()}
                               alt={image.alt}
                               src={image.src}
@@ -335,6 +395,7 @@ export default function About() {
               </Column>
             </>
           )}
+
         </Column>
       </Row>
     </Column>
