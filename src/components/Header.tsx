@@ -23,23 +23,15 @@ export const Header = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const isActiveLink = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
-
-    if (href === "/about") {
-      return pathname.startsWith("/about");
-    }
-
-    if (href === "/work") {
-      return pathname.startsWith("/work");
-    }
-
+    if (href === "/") return pathname === "/";
+    if (href === "/about") return pathname.startsWith("/about");
+    if (href === "/work") return pathname.startsWith("/work");
     return false;
   };
 
@@ -49,6 +41,7 @@ export const Header = () => {
         <a href="/" className={styles.brand}>
           Irene Sánchez
         </a>
+
         <nav className={styles.desktopNav}>
           {navLinks.map(({ label, href }) => (
             <a
@@ -56,7 +49,7 @@ export const Header = () => {
               href={href}
               className={`${styles.navLink} ${isActiveLink(href) ? styles.active : ""}`}
             >
-              {label}
+              <span className={styles.navText}>{label}</span>
             </a>
           ))}
         </nav>

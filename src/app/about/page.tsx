@@ -11,6 +11,7 @@ import {
   Meta,
   Schema,
   Row,
+  RevealFx,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -127,22 +128,23 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Row fillWidth s={{ direction: "column"}} horizontal="center">
-        {about.avatar.display && (
-          <Column
-            className={styles.avatar}
-            top="64"
-            fitHeight
-            position="sticky"
-            s={{ position: "relative", style: { top: "auto" } }}
-            xs={{ style: { top: "auto" } }}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-          >
+      <RevealFx translateY="8" fillWidth>
+        <Row fillWidth s={{ direction: "column" }} horizontal="center">
+          {about.avatar.display && (
+            <Column
+              className={styles.avatar}
+              top="64"
+              fitHeight
+              position="sticky"
+              s={{ position: "relative", style: { top: "auto" } }}
+              xs={{ style: { top: "auto" } }}
+              minWidth="160"
+              paddingX="l"
+              paddingBottom="xl"
+              gap="m"
+              flex={3}
+              horizontal="center"
+            >
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
@@ -192,77 +194,87 @@ export default function About() {
                 />
               </Row>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
+            <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="8">
+              <Heading className={styles.textAlign} variant="display-strong-xl">
+                {person.name}
+              </Heading>
+            </RevealFx>
+            <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="8">
+              <Text
+                className={styles.textAlign}
+                variant="display-default-xs"
+                onBackground="neutral-weak"
               >
-                {social
-                      .filter((item) => item.essential)
-                      .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
-                )}
-              </Row>
+                {person.role}
+              </Text>
+            </RevealFx>
+            {social.length > 0 && (
+              <RevealFx delay={0.4} fillWidth horizontal="center" paddingTop="20" paddingBottom="8">
+                <Row
+                  className={styles.blockAlign}
+                  paddingTop="20"
+                  paddingBottom="8"
+                  gap="8"
+                  wrap
+                  horizontal="center"
+                  fitWidth
+                  data-border="rounded"
+                >
+                  {social
+                    .filter((item) => item.essential)
+                    .map(
+                      (item) =>
+                        item.link && (
+                          <React.Fragment key={item.name}>
+                            <Row s={{ hide: true }}>
+                              <Button
+                                key={item.name}
+                                href={item.link}
+                                prefixIcon={item.icon}
+                                label={item.name}
+                                size="s"
+                                weight="default"
+                                variant="secondary"
+                              />
+                            </Row>
+                            <Row hide s={{ hide: false }}>
+                              <IconButton
+                                size="l"
+                                key={`${item.name}-icon`}
+                                href={item.link}
+                                icon={item.icon}
+                                variant="secondary"
+                              />
+                            </Row>
+                          </React.Fragment>
+                        ),
+                    )}
+                </Row>
+              </RevealFx>
             )}
           </Column>
 
           {about.intro.display && (
-            <Column
-              textVariant="body-default-l"
-              fillWidth
-              gap="m"
-              marginBottom="m"
-              style={{ textAlign: "justify" }}
-            >
-              {about.intro.description}
-            </Column>
+            <RevealFx translateY="8" delay={0.2} fillWidth>
+              <Column
+                textVariant="body-default-l"
+                fillWidth
+                gap="m"
+                marginBottom="m"
+                style={{ textAlign: "justify" }}
+              >
+                {about.intro.description}
+              </Column>
+            </RevealFx>
           )}
 
           {about.technical.display && (
             <Column fillWidth gap="8" paddingTop="m" marginBottom="xl">
-              <Heading as="h2" variant="display-strong-s" marginBottom="m">
-                {about.technical.title}
-              </Heading>
+              <RevealFx translateY="8" fillWidth>
+                <Heading as="h2" variant="display-strong-s" marginBottom="m">
+                  {about.technical.title}
+                </Heading>
+              </RevealFx>
               <Row wrap gap="16" className={styles.skillCategories}>
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill.title}-${index}`} className={styles.skillCategory} gap="12">
@@ -296,9 +308,11 @@ export default function About() {
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-                {about.work.title}
-              </Heading>
+              <RevealFx translateY="8" fillWidth>
+                <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+                  {about.work.title}
+                </Heading>
+              </RevealFx>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
@@ -398,6 +412,7 @@ export default function About() {
 
         </Column>
       </Row>
+      </RevealFx>
     </Column>
   );
 }
