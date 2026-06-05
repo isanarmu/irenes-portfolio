@@ -34,10 +34,9 @@
 }
 
 .skillCategory {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.02);
 }
 
 .skillIcons {
@@ -75,3 +74,318 @@
         align-self: center;
     }
 }
+
+.gradientText {
+    width: fit-content;
+    font-weight: 600;
+    background: linear-gradient(90deg, #a855f7 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.emailPill {
+    border: 1px solid rgba(168, 85, 247, 0.45) !important;
+    background:
+        linear-gradient(rgba(7, 8, 20, 0.88), rgba(7, 8, 20, 0.88)) padding-box,
+        linear-gradient(90deg, #a855f7 0%, #6366f1 100%) border-box !important;
+    box-shadow:
+        0 0 24px rgba(168, 85, 247, 0.16),
+        inset 0 0 18px rgba(99, 102, 241, 0.08);
+    backdrop-filter: blur(8px);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.emailPill:hover {
+    transform: translateY(-1px);
+    border-color: rgba(168, 85, 247, 0.7) !important;
+    box-shadow:
+        0 0 32px rgba(168, 85, 247, 0.24),
+        0 0 16px rgba(99, 102, 241, 0.18),
+        inset 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+.emailPillText {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.emailPillIcon {
+    color: #a855f7;
+}
+
+.emailPillButton {
+    border-color: rgba(168, 85, 247, 0.35) !important;
+    background: rgba(168, 85, 247, 0.1) !important;
+}
+
+
+// categrias about
+
+.fileTree {
+    width: 260px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    color: #ffffff;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul ul {
+        margin-left: 12px;
+        padding-left: 14px;
+        border-left: 1px solid rgba(168, 85, 247, 0.38);
+    }
+}
+
+.treeItem {
+    position: relative;
+    margin-top: 4px;
+}
+
+.fileTree ul ul .treeItem::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 16px;
+    width: 14px;
+    height: 1px;
+    background: rgba(168, 85, 247, 0.26);
+}
+
+.treeLabel,
+.fileItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 30px;
+    padding: 4px 8px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.82);
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    text-decoration: none;
+}
+
+.fileItem {
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.fileItem:hover {
+    color: #ffffff;
+    background: transparent;
+    transform: translateX(3px);
+}
+
+.folderIcon {
+    color: #a855f7;
+    font-size: 0.8rem;
+}
+
+.fileIcon {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #6366f1;
+    font-size: 0.65rem;
+}
+
+// fin categorias about
+
+// ubicacion about
+.locationRow {
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.locationLoader {
+    width: 17px;
+    height: 17px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+}
+
+.locationLoader::before,
+.locationLoader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50% 50% 0 50%;
+    background: transparent;
+    background-image: radial-gradient(
+        circle 5px at 50% 50%,
+        transparent 94%,
+        #a855f7
+    );
+}
+
+.locationLoader::after {
+    animation: locationPulse 2.15s infinite;
+    transform: perspective(180px) translateZ(0);
+}
+
+@keyframes locationPulse {
+    to {
+        transform: perspective(180px) translateZ(90px);
+        opacity: 0;
+    }
+}
+// fin ubicacion about
+
+
+// profile card
+.profileCard {
+    width: 230px;
+    min-height: 330px;
+    margin-top: 10px;
+    padding: 18px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 30% 10%, rgba(168, 85, 247, 0.18), transparent 36%),
+        radial-gradient(circle at 80% 30%, rgba(99, 102, 241, 0.16), transparent 34%),
+        rgba(7, 8, 20, 0.42);
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    box-shadow:
+        0 0 28px rgba(168, 85, 247, 0.10),
+        inset 0 0 24px rgba(99, 102, 241, 0.05);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.profileCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(168, 85, 247, 0.42);
+    box-shadow:
+        0 0 36px rgba(168, 85, 247, 0.16),
+        inset 0 0 28px rgba(99, 102, 241, 0.08);
+}
+
+.profileImageWrap {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 0;
+    background: transparent;
+    box-shadow:
+        0 18px 36px rgba(0, 0, 0, 0.42),
+        0 0 34px rgba(168, 85, 247, 0.16);
+    overflow: hidden;
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.profileInfo {
+    width: 100%;
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.profileLocation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.locationLoader {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    transform: rotate(45deg);
+}
+
+.locationLoader::before,
+.locationLoader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50% 50% 0 50%;
+    background: transparent;
+    background-image: radial-gradient(
+        circle 4px at 50% 50%,
+        transparent 94%,
+        #a855f7
+    );
+}
+
+.locationLoader::after {
+    animation: locationPulse 1.15s infinite;
+    transform: perspective(160px) translateZ(0);
+}
+
+.profileLanguages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.profileLanguages p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.88rem;
+    letter-spacing: 0.2px;
+}
+
+.profileSectionTitle {
+    margin-bottom: 4px !important;
+    font-weight: 700;
+    color: #ffffff !important;
+    background: linear-gradient(90deg, #a855f7 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes locationPulse {
+    to {
+        transform: perspective(160px) translateZ(80px);
+        opacity: 0;
+    }
+}
+// fin profile card
