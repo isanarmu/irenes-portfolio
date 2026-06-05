@@ -3,22 +3,16 @@ import { getPosts } from "@/utils/utils";
 import {
   Meta,
   Schema,
-  AvatarGroup,
   Button,
   Column,
-  Flex,
   Heading,
   Media,
   Text,
-  SmartLink,
-  Row,
-  Avatar,
-  Line,
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
-import { Projects } from "@/components/work/Projects";
+import styles from "./project.module.scss";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -67,13 +61,10 @@ export default async function Project({
     notFound();
   }
 
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  const galleryImages = post.metadata.images || [];
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <Column as="section" maxWidth="l" horizontal="center" gap="24" paddingTop="24">
       <Schema
         as="blogPosting"
         baseURL={baseURL}
@@ -91,50 +82,43 @@ export default async function Project({
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column maxWidth="s" gap="16" fillWidth>
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">← Back to Projects</Text>
-        </SmartLink>
 
-        <Column gap="8" horizontal="center" align="center">
-          <Heading variant="display-strong-m">{post.metadata.title}</Heading>
-          {post.metadata.summary && (
-            <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-              {post.metadata.summary}
-            </Text>
-          )}
-        </Column>
-      </Column>
-      <Row marginBottom="32" horizontal="center">
-        <Row gap="16" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
-          <Text variant="label-default-m" onBackground="brand-weak">
-            {post.metadata.team?.map((member, idx) => (
-              <span key={idx}>
-                {idx > 0 && (
-                  <Text as="span" onBackground="neutral-weak">
-                    ,{" "}
-                  </Text>
-                )}
-                <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
-              </span>
-            ))}
+      <Column maxWidth="m" gap="12" horizontal="center" align="center" paddingTop="24" paddingBottom="8">
+        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+
+        {post.metadata.summary && (
+          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
+            {post.metadata.summary}
           </Text>
-        </Row>
-      </Row>
-      {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
+        )}
+      </Column>
+
+      {galleryImages.length > 0 && (
+        <div className={styles.projectGallery}>
+          {galleryImages.map((image, index) => (
+            <div className={styles.gallerySlide} key={image}>
+              <Media
+                priority={index === 0}
+                aspectRatio="16 / 9"
+                radius="l"
+                alt={`${post.metadata.title} screenshot ${index + 1}`}
+                src={image}
+              />
+            </div>
+          ))}
+        </div>
       )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
+
+      <Column as="article" maxWidth="m" fillWidth>
         <CustomMDX source={post.content} />
       </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
-        <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Related projects
-        </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
+
+      <Column fillWidth horizontal="center" paddingTop="32" paddingBottom="40">
+        <Button href="/work" variant="secondary" size="m">
+          ← Back to Projects
+        </Button>
       </Column>
+
       <ScrollToHash />
     </Column>
   );

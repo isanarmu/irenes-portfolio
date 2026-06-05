@@ -1,218 +1,119 @@
 ---
 title: "Trasteando"
 publishedAt: "2026-01-01"
-summary: "Full-stack storage marketplace built with React, Flask, PostgreSQL, JWT authentication, Stripe payments, Socket.IO messaging, Google Maps and AI-powered inventory categorization."
+summary: "A full-stack storage marketplace with booking, payments, maps, real-time chat and AI-powered inventory tools."
 images:
   - "/images/projects/trasteando/cover-01.png"
-  - "/images/projects/trasteando/trasteando_book_a_storage.png"
-  - "/images/projects/trasteando/trasteando_log_in.png"
-  - "/images/projects/trasteando/mapa.png"
   - "/images/projects/trasteando/inicio.png"
+  - "/images/projects/trasteando/trasteando_book_a_storage.png"
+  - "/images/projects/trasteando/mapa.png"
+  - "/images/projects/trasteando/trasteando_log_in.png"
 link: "https://trasteando.cloud/"
 ---
 
-## Overview
+## What is Trasteando?
 
-Trasteando is a full-stack storage marketplace that connects individuals looking for storage space with companies offering available units.
+Trasteando is a storage marketplace.
 
-The platform allows users to search, compare, book and manage storage facilities, while businesses can control availability, pricing, revenue, client communication and storage operations from a dedicated management dashboard.
+Users can find storage spaces, compare options, book a unit and manage their items. Storage companies can manage facilities, prices, availability, messages and client activity from their own dashboard.
 
-This project was built as a production-oriented full-stack application, combining frontend architecture, backend engineering, relational database modeling, secure authentication, payment processing, real-time communication, interactive maps and AI-assisted inventory management.
+---
 
-## Technologies & Tools
+## The project in 20 seconds
 
-- **Frontend:** React, JavaScript, Bootstrap, React Router
-- **Backend:** Python, Flask, RESTful APIs
-- **Database:** PostgreSQL, SQLAlchemy ORM
-- **Authentication:** JWT, protected routes, role-based access control
-- **Payments:** Stripe Checkout Sessions and payment validation
-- **Real-time communication:** Socket.IO
-- **Maps & geolocation:** Google Maps
-- **AI:** OpenAI-powered inventory categorization
-- **Deployment:** Railway, Render, Docker, Gunicorn
+- **Type:** full-stack marketplace
+- **Users:** clients, companies and admin roles
+- **Main flow:** search → compare → book → pay → manage storage
+- **Core features:** maps, payments, chat, dashboards and AI inventory
+- **Stack:** React, Flask, PostgreSQL, SQLAlchemy, JWT, Stripe, Socket.IO, Google Maps and OpenAI
 
-## Marketplace Architecture
+---
 
-Trasteando was designed as a two-sided marketplace with two main application layers: a client-facing experience and a company management environment.
+## What I wanted to solve
 
-### Client Application Layer
+Finding storage space should not feel like calling ten companies and comparing prices manually.
 
-The client side focuses on discovery, booking and storage management.
+The idea was to build a product where users can see available storage options, understand the location, book securely and communicate directly with the provider.
 
-Key features include:
+For companies, the goal was to create a management area where they could control their storage units, bookings, pricing and client communication.
 
-- Location-based storage search with interactive maps.
-- Storage comparison and filtering system.
-- Secure booking and payment flow.
-- Personal dashboard with user metrics.
-- Direct messaging with storage providers.
-- Custom storage selection.
-- AI-assisted inventory insights.
+---
 
-### Company Management Layer
+## Main features
 
-The company side provides tools for storage providers to manage their business operations.
+### 1. Storage search and booking
 
-Key features include:
+Users can browse available storage units and start a booking flow from the platform.
 
-- CRUD system for storage facilities.
-- Availability and pricing management.
-- Revenue tracking dashboard.
-- Role-based staff access control.
-- Direct messaging with clients.
-- Live storage management.
-- AI-powered inventory management.
+This part connects the user interface with backend availability, booking data and payment preparation.
 
-## Backend Engineering
+![Book a storage screenshot](/images/projects/trasteando/trasteando_book_a_storage.png)
 
-The backend was built with Flask following a modular RESTful API structure focused on maintainability and scalability.
+### 2. Location-based discovery
 
-### API Architecture
+Google Maps helps users understand where each storage option is located and compare nearby alternatives visually.
 
-- RESTful endpoints structured by resource.
-- HTTP methods including GET, POST, PUT and DELETE.
-- Blueprint-based modularization.
-- Controller-service separation pattern.
-- Backend validation for protected flows and business logic.
+![Map screenshot](/images/projects/trasteando/mapa.png)
 
-### Database Design
+### 3. Authentication and roles
 
-The data layer was modeled with SQLAlchemy ORM and PostgreSQL.
+The platform uses JWT authentication and protected routes.
 
-The database structure includes:
+Different users see different areas depending on their role: client, company or admin.
 
-- Relational modeling with one-to-many and many-to-many relationships.
-- Optimized queries for marketplace search and dashboard data.
-- Migration-ready structure.
-- Persistent storage for users, companies, facilities, bookings, messages and inventory data.
+![Login screenshot](/images/projects/trasteando/trasteando_log_in.png)
 
-### Authentication & Security
+### 4. Company management
 
-Security was implemented through JWT-based authentication and role-based access control.
+Companies can manage facilities, availability, pricing and conversations from a dedicated dashboard.
 
-Main security features include:
+The project was designed as a two-sided platform, not just a public website.
 
-- JWT authentication.
-- Role-based access control for clients, companies and admin users.
-- Protected routes and middleware validation.
-- Secure password hashing.
-- Differentiated access depending on user role and dashboard context.
+### 5. AI inventory tools
 
-## Frontend Architecture
+The inventory module uses AI to help classify and organize stored items.
 
-The frontend was built with React using a component-driven architecture focused on scalability, maintainability and clean state management.
+This makes the product more useful than a basic booking platform, because it also helps users manage what they store.
 
-### Component System
+---
 
-- 40+ reusable components.
-- Layout abstraction for dashboard and public views.
-- Separation of UI and business logic.
-- State-driven rendering.
-- Responsive design with Bootstrap.
+## Technical build
 
-### Routing & Access Control
+The project combines several real-world systems:
 
-- React Router protected routes.
-- Client-side role validation.
-- Private and public route separation.
-- Nested layouts for multi-role dashboard navigation.
-- Dynamic sidebar depending on user role.
+- **React** for the frontend interface.
+- **Flask** for the backend API.
+- **SQLAlchemy and PostgreSQL** for relational data modeling.
+- **JWT** for authentication and protected routes.
+- **Stripe** for secure payment flows.
+- **Socket.IO** for real-time communication.
+- **Google Maps** for location intelligence.
+- **OpenAI** for AI-powered inventory categorization.
+- **Railway, Render, Docker and Gunicorn** for deployment preparation.
 
-### UX & Performance
+---
 
-- Responsive interface.
-- Optimized rendering patterns.
-- Clean state management.
-- Smooth UI animations.
-- Refined chat user experience with badges and live updates.
+## What I built
 
-## Advanced Functionalities
+I worked across the full stack of the project:
 
-### Real-Time Communication — Socket.IO
+- Frontend components and user flows.
+- Protected routing and role-based navigation.
+- Flask API structure.
+- SQLAlchemy models and relationships.
+- JWT authentication logic.
+- Stripe payment integration.
+- Socket.IO messaging flow.
+- Google Maps integration.
+- AI-assisted inventory functionality.
+- Production deployment preparation.
 
-Trasteando includes a WebSocket-based messaging system that enables instant communication between clients and storage providers.
+---
 
-The system includes:
+## Why it matters
 
-- Real-time message emission by user.
-- JWT-based Socket.IO handshake.
-- Conversation filtering.
-- Message persistence.
-- Chat badge updates.
-- Stable real-time architecture for production environments.
+Trasteando is important in my portfolio because it is not a simple CRUD app.
 
-### Secure Payments — Stripe
+It combines product thinking, frontend development, backend architecture, database relationships, third-party APIs, authentication, payments, real-time systems and deployment.
 
-The platform integrates Stripe for secure payment processing.
-
-The implementation includes:
-
-- Stripe Checkout Sessions.
-- `price_id` based subscription/payment configuration.
-- Backend payment status validation.
-- Webhook-ready architecture.
-- Operational test mode implementation.
-
-### AI-Powered Inventory Module
-
-The inventory system includes AI-assisted categorization to help users organize stored items more efficiently.
-
-The module includes:
-
-- Automatic item categorization.
-- Structured product tagging.
-- Cloudinary upload support.
-- Intelligent placement suggestions.
-- CSV export functionality.
-
-### Location Intelligence — Google Maps
-
-Google Maps was integrated to improve the storage discovery experience.
-
-The map functionality includes:
-
-- Dynamic map rendering.
-- Facility visualization.
-- Nearby storage highlighting.
-- Location-based decision support.
-- Distance-aware search logic.
-
-## Deployment & Infrastructure
-
-The project was prepared for full-stack deployment with cloud infrastructure and production-oriented configuration.
-
-Deployment work included:
-
-- Flask backend deployment on Railway.
-- PostgreSQL cloud database configuration.
-- Environment variables management.
-- Gunicorn production server.
-- Full-stack Render deployment using Docker.
-- Node build stage and Python 3.11 runtime.
-- WebSocket production support.
-
-## Additional Features
-
-The project also includes:
-
-- REST-based messaging documentation.
-- Socket.IO real-time messaging architecture.
-- Multi-role dashboard.
-- Interactive custom 404 page built with React Router.
-- SPA fallback configuration with Flask.
-- Dark mode exploration using global CSS variables.
-- Final technical documentation and project presentation.
-
-## What I Built
-
-I contributed to the full-stack implementation of Trasteando, working across frontend, backend, database modeling, authentication flows, API integration, dashboard logic, real-time communication and deployment preparation.
-
-The project allowed me to connect product thinking with engineering execution: designing user flows, structuring scalable code, protecting routes, managing persistent data, integrating third-party services and building a realistic marketplace experience.
-
-## Outcome
-
-Trasteando demonstrates my ability to build a complete full-stack product beyond a simple CRUD application.
-
-It combines secure authentication, real-time systems, payment processing, geolocation intelligence, AI-assisted functionality, multi-role dashboards and production deployment practices into one coherent platform.
-
-This project represents my transition from academic learning to production-oriented software engineering.
+It shows that I can build a complete full-stack product with realistic user flows.

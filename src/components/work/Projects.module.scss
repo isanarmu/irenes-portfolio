@@ -15,3 +15,43 @@
     left: -2rem;
     transition: var(--transition-micro-medium);
 }
+
+
+// trasteando
+
+.projectGallery {
+    width: 100%;
+    max-width: 1120px;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 0 18px;
+    margin: 0 auto 24px;
+    scrollbar-width: thin;
+}
+
+.projectGallery::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projectGallery::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+}
+
+.projectGallery::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+}
+
+.gallerySlide {
+    flex: 0 0 88%;
+    scroll-snap-align: center;
+}
+
+@media (max-width: 768px) {
+    .gallerySlide {
+        flex-basis: 94%;
+    }
+}
