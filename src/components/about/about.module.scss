@@ -21,6 +21,8 @@
     }
 }
 
+/* Technical Skills cards */
+
 .skillCategories {
     display: grid;
     gap: 16px;
@@ -34,15 +36,110 @@
 }
 
 .skillCategory {
+    width: 100%;
+    min-height: 254px;
+    background: #171717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px 1px #00000088;
+    cursor: pointer;
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
+}
+
+.skillCategoryContent {
+    border-radius: 10px;
+    background: #171717;
+    width: calc(100% - 4px);
+    min-height: 250px;
+    z-index: 2;
     padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+.skillCategoryContent::before {
+    opacity: 0;
+    transition: opacity 300ms;
+    content: " ";
+    display: block;
+    background: #fff5;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+.skillCategory:hover .skillCategoryContent::before {
+    opacity: 1;
+}
+
+.skillCategory::before {
+    opacity: 1;
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 300px;
+    transform: rotate(0deg) translateY(50%);
+    background: linear-gradient(90deg, #ff2288, transparent);
+    transition: opacity 300ms;
+    animation: rotation_9018 3000ms infinite linear;
+    animation-play-state: paused;
+}
+
+.skillCategory::after {
+    opacity: 1;
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 300px;
+    transform: rotate(0deg) translateY(-50%);
+    background: linear-gradient(90deg, transparent, #2268ff);
+    transition: opacity 300ms;
+    animation: rotation_9019 3000ms infinite linear;
+    animation-play-state: paused;
+}
+
+.skillCategory:hover::before {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+.skillCategory:hover::after {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+.skillCategory:hover .skillGlass {
+    opacity: 0;
+}
+
+.skillGlass {
+    position: absolute;
+    content: "";
+    display: block;
+    inset: 0;
+    background: #17171733;
+    backdrop-filter: blur(50px);
+    z-index: 1;
+    transition-duration: 0.5s;
+    pointer-events: none;
 }
 
 .skillIcons {
     display: grid;
     gap: 12px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    position: relative;
+    z-index: 3;
 }
 
 .skillIcon {
@@ -57,6 +154,8 @@
     gap: 8px;
     text-align: center;
     background: rgba(255, 255, 255, 0.01);
+    position: relative;
+    z-index: 3;
 }
 
 .skillIconImage {
@@ -64,6 +163,28 @@
     max-width: 100%;
     object-fit: contain;
 }
+
+@keyframes rotation_9018 {
+    0% {
+        transform: rotate(0deg) translateY(50%);
+    }
+
+    100% {
+        transform: rotate(360deg) translateY(50%);
+    }
+}
+
+@keyframes rotation_9019 {
+    0% {
+        transform: rotate(0deg) translateY(-50%);
+    }
+
+    100% {
+        transform: rotate(360deg) translateY(-50%);
+    }
+}
+
+/* Responsive text alignment */
 
 @media (max-width: breakpoints.$s) {
     .textAlign {
@@ -75,6 +196,8 @@
     }
 }
 
+/* Gradient text */
+
 .gradientText {
     width: fit-content;
     font-weight: 600;
@@ -84,6 +207,8 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
+
+/* Email pill */
 
 .emailPill {
     border: 1px solid rgba(168, 85, 247, 0.45) !important;
@@ -123,8 +248,7 @@
     background: rgba(168, 85, 247, 0.1) !important;
 }
 
-
-// categrias about
+/* About file tree */
 
 .fileTree {
     width: 260px;
@@ -211,9 +335,8 @@
     font-size: 0.65rem;
 }
 
-// fin categorias about
+/* Location icon */
 
-// ubicacion about
 .locationRow {
     justify-content: center;
     color: #ffffff;
@@ -221,8 +344,8 @@
 }
 
 .locationLoader {
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
     position: relative;
     display: inline-block;
     flex-shrink: 0;
@@ -237,27 +360,26 @@
     border-radius: 50% 50% 0 50%;
     background: transparent;
     background-image: radial-gradient(
-        circle 5px at 50% 50%,
+        circle 4px at 50% 50%,
         transparent 94%,
         #a855f7
     );
 }
 
 .locationLoader::after {
-    animation: locationPulse 2.15s infinite;
-    transform: perspective(180px) translateZ(0);
+    animation: locationPulse 1.15s infinite;
+    transform: perspective(160px) translateZ(0);
 }
 
 @keyframes locationPulse {
     to {
-        transform: perspective(180px) translateZ(90px);
+        transform: perspective(160px) translateZ(80px);
         opacity: 0;
     }
 }
-// fin ubicacion about
 
+/* Profile card */
 
-// profile card
 .profileCard {
     width: 230px;
     min-height: 330px;
@@ -329,34 +451,6 @@
     font-weight: 600;
 }
 
-.locationLoader {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    display: inline-block;
-    flex-shrink: 0;
-    transform: rotate(45deg);
-}
-
-.locationLoader::before,
-.locationLoader::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50% 50% 0 50%;
-    background: transparent;
-    background-image: radial-gradient(
-        circle 4px at 50% 50%,
-        transparent 94%,
-        #a855f7
-    );
-}
-
-.locationLoader::after {
-    animation: locationPulse 1.15s infinite;
-    transform: perspective(160px) translateZ(0);
-}
-
 .profileLanguages {
     width: 100%;
     display: flex;
@@ -381,11 +475,3 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
-@keyframes locationPulse {
-    to {
-        transform: perspective(160px) translateZ(80px);
-        opacity: 0;
-    }
-}
-// fin profile card

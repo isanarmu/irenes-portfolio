@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Background,
   Button,
   Column,
   Heading,
@@ -14,8 +13,7 @@ import {
   Row,
   RevealFx,
 } from "@once-ui-system/core";
-import { opacity, SpacingToken } from "@once-ui-system/core";
-import { baseURL, about, person, social, mailchimp } from "@/resources";
+import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
@@ -291,95 +289,40 @@ export default function About() {
                     {about.technical.title}
                   </Heading>
                 </RevealFx>
+
                 <Row wrap gap="16" className={styles.skillCategories}>
                   {about.technical.skills.map((skill, index) => (
-                    <Column
-                      key={`${skill.title}-${index}`}
-                      className={styles.skillCategory}
-                      gap="12"
-                      overflow="hidden"
-                      position="relative"
-                      background="surface"
-                      border="neutral-alpha-weak"
-                      radius="l"
-                    >
-                      <Background
-                        top="0"
-                        left="0"
-                        right="0"
-                        bottom="0"
-                        position="absolute"
-                        style={{
-                          inset: 0,
-                          width: "100%",
-                          height: "100%",
-                          pointerEvents: "none",
-                        }}
-                        mask={{
-                          x: mailchimp.effects.mask.x,
-                          y: mailchimp.effects.mask.y,
-                          radius: mailchimp.effects.mask.radius,
-                          cursor: mailchimp.effects.mask.cursor,
-                        }}
-                        gradient={{
-                          display: mailchimp.effects.gradient.display,
-                          opacity: mailchimp.effects.gradient.opacity as opacity,
-                          x: mailchimp.effects.gradient.x,
-                          y: mailchimp.effects.gradient.y,
-                          width: mailchimp.effects.gradient.width,
-                          height: mailchimp.effects.gradient.height,
-                          tilt: mailchimp.effects.gradient.tilt,
-                          colorStart: mailchimp.effects.gradient.colorStart,
-                          colorEnd: mailchimp.effects.gradient.colorEnd,
-                        }}
-                        dots={{
-                          display: mailchimp.effects.dots.display,
-                          opacity: mailchimp.effects.dots.opacity as opacity,
-                          size: mailchimp.effects.dots.size as SpacingToken,
-                          color: mailchimp.effects.dots.color,
-                        }}
-                        grid={{
-                          display: mailchimp.effects.grid.display,
-                          opacity: mailchimp.effects.grid.opacity as opacity,
-                          color: mailchimp.effects.grid.color,
-                          width: mailchimp.effects.grid.width,
-                          height: mailchimp.effects.grid.height,
-                        }}
-                        lines={{
-                          display: mailchimp.effects.lines.display,
-                          opacity: mailchimp.effects.lines.opacity as opacity,
-                          size: mailchimp.effects.lines.size as SpacingToken,
-                          thickness: mailchimp.effects.lines.thickness,
-                          angle: mailchimp.effects.lines.angle,
-                          color: mailchimp.effects.lines.color,
-                        }}
-                      />
+                    <div key={`${skill.title}-${index}`} className={styles.skillCategory}>
+                      <span className={styles.skillGlass}></span>
 
-                      <Text variant="heading-strong-s" marginBottom="4">
-                        {skill.title}
-                      </Text>
+                      <div className={styles.skillCategoryContent}>
+                        <Text variant="heading-strong-s" marginBottom="4">
+                          {skill.title}
+                        </Text>
 
-                      <Text variant="body-default-s" onBackground="neutral-weak">
-                        {skill.description}
-                      </Text>
+                        <Text variant="body-default-s" onBackground="neutral-weak">
+                          {skill.description}
+                        </Text>
 
-                      <Row wrap gap="12" className={styles.skillIcons}>
-                        {skill.tags?.map((tag, tagIndex) => (
-                          <Column key={`${skill.title}-${tagIndex}`} className={styles.skillIcon} gap="8">
-                            {skillIcons[tag.name] ? (
-                              <img
-                                src={skillIcons[tag.name].src}
-                                alt={`${tag.name} icon`}
-                                className={styles.skillIconImage}
-                              />
-                            ) : null}
-                            <Text variant="body-default-s" as="span">
-                              {tag.name}
-                            </Text>
-                          </Column>
-                        ))}
-                      </Row>
-                    </Column>
+                        <Row wrap gap="12" className={styles.skillIcons}>
+                          {skill.tags?.map((tag, tagIndex) => (
+                            <Column key={`${skill.title}-${tagIndex}`} className={styles.skillIcon} gap="8">
+                              {skillIcons[tag.name] ? (
+                                <img
+                                  src={skillIcons[tag.name].src}
+                                  alt={`${tag.name} icon`}
+                                  className={styles.skillIconImage}
+                                />
+                              ) : null}
+
+                              <Text variant="body-default-s" as="span">
+                                {tag.name}
+                              </Text>
+                            </Column>
+                          ))}
+                        </Row>
+                      </div>
+                    </div>
                   ))}
                 </Row>
               </Column>
