@@ -87,10 +87,10 @@ export default async function Project({
       <Column maxWidth="m" gap="12" horizontal="center" align="center" paddingTop="24" paddingBottom="8">
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
 
-        {post.metadata.summary && (
-          <Text variant="body-default-l" onBackground="neutral-weak" align="center">
-            {post.metadata.summary}
-          </Text>
+        {post.metadata.link && (
+          <Button href={post.metadata.link} variant="primary" size="m">
+            Watch live
+          </Button>
         )}
       </Column>
 

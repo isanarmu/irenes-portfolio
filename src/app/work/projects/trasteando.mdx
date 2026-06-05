@@ -3,86 +3,87 @@ title: "Trasteando"
 publishedAt: "2026-01-01"
 summary: "A full-stack storage marketplace with booking, payments, maps, real-time chat and AI-powered inventory tools."
 images:
-  - "/images/projects/trasteando/cover-01.png"
-  - "/images/projects/trasteando/inicio.png"
-  - "/images/projects/trasteando/trasteando_book_a_storage.png"
-  - "/images/projects/trasteando/mapa.png"
-  - "/images/projects/trasteando/trasteando_log_in.png"
+  - "/images/projects/Trasteando/cover-01.png"
+  - "/images/projects/Trasteando/inicio.png"
+  - "/images/projects/Trasteando/trasteando_book_a_storage.png"
+  - "/images/projects/Trasteando/mapa.png"
+  - "/images/projects/Trasteando/trasteando_log_in.png"
 link: "https://trasteando.cloud/"
 ---
 
 ## What is Trasteando?
 
-Trasteando is a storage marketplace.
+Trasteando is a full-stack storage marketplace that connects people looking for storage space with companies offering available units.
 
-Users can find storage spaces, compare options, book a unit and manage their items. Storage companies can manage facilities, prices, availability, messages and client activity from their own dashboard.
-
----
-
-## The project in 20 seconds
-
-- **Type:** full-stack marketplace
-- **Users:** clients, companies and admin roles
-- **Main flow:** search → compare → book → pay → manage storage
-- **Core features:** maps, payments, chat, dashboards and AI inventory
-- **Stack:** React, Flask, PostgreSQL, SQLAlchemy, JWT, Stripe, Socket.IO, Google Maps and OpenAI
+Users can search, compare, book and manage storage units. Companies can manage facilities, pricing, availability and client communication from their own dashboard.
 
 ---
 
-## What I wanted to solve
+## The product in 20 seconds
 
-Finding storage space should not feel like calling ten companies and comparing prices manually.
-
-The idea was to build a product where users can see available storage options, understand the location, book securely and communicate directly with the provider.
-
-For companies, the goal was to create a management area where they could control their storage units, bookings, pricing and client communication.
+- **Marketplace:** clients can book storage units from companies.
+- **Booking flow:** search, compare, reserve and pay.
+- **Dashboards:** different experiences for clients, companies and admin users.
+- **Real-time features:** chat between clients and storage providers.
+- **Smart tools:** AI-assisted inventory categorization.
+- **Stack:** React, Flask, PostgreSQL, SQLAlchemy, JWT, Stripe, Socket.IO, Google Maps and OpenAI.
 
 ---
 
 ## Main features
 
-### 1. Storage search and booking
+### Storage search and booking
 
-Users can browse available storage units and start a booking flow from the platform.
+Users can search for available storage units and start the booking flow directly from the platform.
 
-This part connects the user interface with backend availability, booking data and payment preparation.
+This is the core user journey: finding a suitable storage space, checking the details and moving towards a reservation without having to contact several companies manually.
 
-### 2. Location-based discovery
+![Storage search screenshot](/images/projects/Trasteando/barra_busqueda.png)
+
+### Location-based discovery
 
 Google Maps helps users understand where each storage option is located and compare nearby alternatives visually.
 
-### 3. Authentication and roles
+This makes the marketplace more useful because location is one of the key decisions when choosing storage.
 
-The platform uses JWT authentication and protected routes.
+![Map screenshot](/images/projects/Trasteando/mapa.png)
 
-Different users see different areas depending on their role: client, company or admin.
+### Secure login and role-based access
 
-### 4. Company management
+Trasteando uses JWT authentication and protected routes.
 
-Companies can manage facilities, availability, pricing and conversations from a dedicated dashboard.
+Different users access different areas depending on their role: client, company or admin.
 
-The project was designed as a two-sided platform, not just a public website.
+![Login screenshot](/images/projects/Trasteando/trasteando_log_in.png)
 
-### 5. AI inventory tools
+### Company management
 
-The inventory module uses AI to help classify and organize stored items.
+Companies can manage storage facilities, bookings, pricing, availability and client communication from their own dashboard.
 
-This makes the product more useful than a basic booking platform, because it also helps users manage what they store.
+This makes Trasteando a two-sided product, not just a landing page.
+
+![Company management screenshot](/images/projects/Trasteando/company-management.png)
+
+### AI-powered inventory
+
+The inventory module uses AI to help users classify and organize stored items.
+
+This adds value beyond booking: users can also manage what they store.
 
 ---
 
 ## Technical build
 
-The project combines several real-world systems:
+Trasteando combines several real-world systems:
 
 - **React** for the frontend interface.
 - **Flask** for the backend API.
 - **SQLAlchemy and PostgreSQL** for relational data modeling.
 - **JWT** for authentication and protected routes.
-- **Stripe** for secure payment flows.
-- **Socket.IO** for real-time communication.
+- **Stripe** for payment flows.
+- **Socket.IO** for real-time messaging.
 - **Google Maps** for location intelligence.
-- **OpenAI** for AI-powered inventory categorization.
+- **OpenAI** for inventory categorization.
 - **Railway, Render, Docker and Gunicorn** for deployment preparation.
 
 ---
@@ -94,20 +95,18 @@ I worked across the full stack of the project:
 - Frontend components and user flows.
 - Protected routing and role-based navigation.
 - Flask API structure.
-- SQLAlchemy models and relationships.
+- SQLAlchemy models and database relationships.
 - JWT authentication logic.
 - Stripe payment integration.
 - Socket.IO messaging flow.
 - Google Maps integration.
 - AI-assisted inventory functionality.
-- Production deployment preparation.
+- Deployment preparation.
 
 ---
 
-## Why it matters
+## Why this project matters
 
-Trasteando is important in my portfolio because it is not a simple CRUD app.
+Trasteando is not a simple CRUD app.
 
-It combines product thinking, frontend development, backend architecture, database relationships, third-party APIs, authentication, payments, real-time systems and deployment.
-
-It shows that I can build a complete full-stack product with realistic user flows.
+It combines product thinking, frontend development, backend architecture, authentication, payments, maps, real-time communication and AI into one complete full-stack product.
