@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Work", href: "/work" },
   {
@@ -29,16 +28,15 @@ export const Header = () => {
   }, []);
 
   const isActiveLink = (href: string) => {
-    if (href === "/") return pathname === "/";
-    if (href === "/about") return pathname.startsWith("/about");
-    if (href === "/work") return pathname.startsWith("/work");
-    return false;
-  };
+  if (href === "/about") return pathname === "/" || pathname.startsWith("/about");
+  if (href === "/work") return pathname.startsWith("/work");
+  return false;
+};
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <a href="/" className={styles.brand}>
+        <a href="/about" className={styles.brand}>
           Irene Sánchez
         </a>
 
