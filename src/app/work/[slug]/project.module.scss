@@ -8,7 +8,6 @@
 .projectGallery {
     width: 100%;
     display: flex;
-    gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -21,7 +20,7 @@
 }
 
 .gallerySlide {
-    flex: 0 0 88%;
+    flex: 0 0 100%;
     scroll-snap-align: center;
 }
 
@@ -29,14 +28,14 @@
     position: absolute;
     top: 50%;
     z-index: 5;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 999px;
     background: rgba(12, 13, 24, 0.72);
     backdrop-filter: blur(12px);
     color: #ffffff;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1;
     display: flex;
     align-items: center;
@@ -46,8 +45,7 @@
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
-        transform 0.2s ease,
-        opacity 0.2s ease;
+        transform 0.2s ease;
 }
 
 .carouselArrow:hover {
@@ -57,29 +55,25 @@
 }
 
 .carouselArrowLeft {
-    left: 14px;
+    left: 16px;
 }
 
 .carouselArrowRight {
-    right: 14px;
+    right: 16px;
 }
 
 @media (max-width: 768px) {
-    .gallerySlide {
-        flex-basis: 94%;
-    }
-
     .carouselArrow {
-        width: 36px;
-        height: 36px;
-        font-size: 28px;
+        width: 34px;
+        height: 34px;
+        font-size: 26px;
     }
 
     .carouselArrowLeft {
-        left: 8px;
+        left: 10px;
     }
 
     .carouselArrowRight {
-        right: 8px;
+        right: 10px;
     }
 }
