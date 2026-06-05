@@ -13,6 +13,7 @@ import { baseURL, about, person, work } from "@/resources";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
 import styles from "./project.module.scss";
+import ProjectCarousel from "./ProjectCarousel";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -93,21 +94,7 @@ export default async function Project({
         )}
       </Column>
 
-      {galleryImages.length > 0 && (
-        <div className={styles.projectGallery}>
-          {galleryImages.map((image, index) => (
-            <div className={styles.gallerySlide} key={image}>
-              <Media
-                priority={index === 0}
-                aspectRatio="16 / 9"
-                radius="l"
-                alt={`${post.metadata.title} screenshot ${index + 1}`}
-                src={image}
-              />
-            </div>
-          ))}
-        </div>
-      )}
+      <ProjectCarousel images={galleryImages} title={post.metadata.title} />
 
       <Column as="article" maxWidth="m" fillWidth>
         <CustomMDX source={post.content} />

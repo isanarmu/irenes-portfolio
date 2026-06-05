@@ -1,0 +1,85 @@
+.carouselWrapper {
+    width: 100%;
+    max-width: 1120px;
+    position: relative;
+    margin: 0 auto 24px;
+}
+
+.projectGallery {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0;
+    scrollbar-width: none;
+}
+
+.projectGallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallerySlide {
+    flex: 0 0 88%;
+    scroll-snap-align: center;
+}
+
+.carouselArrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(12, 13, 24, 0.72);
+    backdrop-filter: blur(12px);
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.carouselArrow:hover {
+    background: rgba(168, 85, 247, 0.28);
+    border-color: rgba(168, 85, 247, 0.5);
+    transform: translateY(-50%) scale(1.04);
+}
+
+.carouselArrowLeft {
+    left: 14px;
+}
+
+.carouselArrowRight {
+    right: 14px;
+}
+
+@media (max-width: 768px) {
+    .gallerySlide {
+        flex-basis: 94%;
+    }
+
+    .carouselArrow {
+        width: 36px;
+        height: 36px;
+        font-size: 28px;
+    }
+
+    .carouselArrowLeft {
+        left: 8px;
+    }
+
+    .carouselArrowRight {
+        right: 8px;
+    }
+}
