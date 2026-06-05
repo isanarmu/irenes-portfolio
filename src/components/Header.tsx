@@ -6,7 +6,7 @@ import styles from "./Header.module.scss";
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
+  { label: "Projects", href: "/work" },
   {
     label: "Contact",
     href: "mailto:irene.armu99@gmail.com?subject=Contacto%20desde%20portfolio",
