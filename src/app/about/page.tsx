@@ -17,6 +17,7 @@ import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import { CertificateImage } from "@/components/about/CertificateImage";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -432,15 +433,7 @@ export default function About() {
                           <div className={styles.studyImagesCompact}>
                             {institution.images.map((image, imageIndex) => (
                               <div key={`${institution.name}-image-${imageIndex}`} className={styles.studyImageThumb}>
-                                <Media
-                                  enlarge
-                                  radius="m"
-                                  aspectRatio="16 / 9"
-                                  objectFit="contain"
-                                  sizes={image.width.toString()}
-                                  alt={image.alt}
-                                  src={image.src}
-                                />
+                                <CertificateImage src={image.src} alt={image.alt} />
                               </div>
                             ))}
                           </div>

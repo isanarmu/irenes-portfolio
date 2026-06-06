@@ -169,6 +169,7 @@
 
 .fileTree {
     width: 260px;
+    max-width: 230px;
     padding: 0;
     border: none;
     border-radius: 0;
@@ -250,6 +251,11 @@
     justify-content: center;
     color: #6366f1;
     font-size: 0.65rem;
+}
+@media (max-width: 1024px) {
+    .fileTree {
+        display: none;
+    }
 }
 
 /* Location icon */
@@ -432,13 +438,12 @@
     box-shadow:
         0 0 18px rgba(168, 85, 247, 0.35),
         0 0 8px rgba(99, 102, 241, 0.25);
-    z-index: 1;
 }
 
 .experiencePanel,
 .studyPanel {
     position: relative;
-    z-index: 0;
+    isolation: auto;
     border: 1px solid rgba(168, 85, 247, 0.18);
     border-radius: 20px;
     padding: 20px;
@@ -512,8 +517,7 @@
     border-radius: 14px;
     padding: 8px;
     background: rgba(255, 255, 255, 0.025);
-    position: relative;
-    z-index: 0;
+    position: static;
 }
 
 @media (max-width: breakpoints.$s) {
@@ -542,11 +546,65 @@
     }
 }
 
-:global([role="dialog"]),
-:global([data-overlay-container]),
-:global([data-radix-portal]),
-:global([data-radix-dialog-content]),
-:global([data-radix-dialog-overlay]) {
-    z-index: 9999 !important;
-}
 /* Fin Work Experience + Studies */
+/* Certificate lightbox */
+
+.certificateThumb {
+    width: 100%;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.certificateThumb img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.certificateLightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(10px);
+    cursor: zoom-out;
+}
+
+.certificateFullImage {
+    max-width: min(96vw, 1200px);
+    max-height: 92vh;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+    cursor: default;
+}
+
+.certificateClose {
+    position: fixed;
+    top: 22px;
+    right: 28px;
+    z-index: 2147483647;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(12, 13, 24, 0.76);
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.certificateClose:hover {
+    background: rgba(168, 85, 247, 0.28);
+    border-color: rgba(168, 85, 247, 0.5);
+}
+// fin certificados fix bug
