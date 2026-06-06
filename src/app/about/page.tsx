@@ -409,7 +409,7 @@ export default function About() {
 
                       <Column fillWidth gap="12" className={styles.studyPanel}>
                         <Row fillWidth horizontal="between" vertical="start" gap="16" wrap>
-                          <Column gap="6">
+                          <Column gap="8">
                             <Text id={institution.name} variant="heading-strong-l">
                               {institution.name}
                             </Text>
