@@ -401,42 +401,52 @@ export default function About() {
                   </Heading>
                 </RevealFx>
 
-                <Column fillWidth gap="16" marginBottom="40">
+                <Column fillWidth gap="20" marginBottom="40" className={styles.timelineList}>
                   {about.studies.institutions.map((institution, index) => (
-                    <Column key={`${institution.name}-${index}`} fillWidth gap="14" className={styles.studyPanel}>
-                      <Row fillWidth horizontal="between" vertical="start" gap="16" wrap>
-                        <Column gap="6">
-                          <Text id={institution.name} variant="heading-strong-l">
-                            {institution.name}
-                          </Text>
-                          <Text variant="body-default-m" onBackground="neutral-weak">
-                            {institution.description}
-                          </Text>
-                        </Column>
+                    <div key={`${institution.name}-${index}`} className={styles.timelineItem}>
+                      <div className={styles.timelineMarker} aria-hidden="true"></div>
 
-                        <span className={styles.studyBadge}>
-                          {index === 0 ? "Bootcamp" : index === 1 ? "Certification" : "Education"}
-                        </span>
-                      </Row>
+                      <Column fillWidth gap="12" className={styles.studyPanel}>
+                        <Row fillWidth horizontal="between" vertical="start" gap="16" wrap>
+                          <Column gap="6">
+                            <Text id={institution.name} variant="heading-strong-l">
+                              {institution.name}
+                            </Text>
+                            <Text variant="body-default-m" onBackground="neutral-weak">
+                              {institution.description}
+                            </Text>
+                          </Column>
 
-                      {institution.images && institution.images.length > 0 && (
-                        <div className={styles.studyImages}>
-                          {institution.images.map((image, imageIndex) => (
-                            <div key={`${institution.name}-image-${imageIndex}`} className={styles.studyImageCard}>
-                              <Media
-                                enlarge
-                                radius="m"
-                                aspectRatio="16 / 9"
-                                objectFit="contain"
-                                sizes={image.width.toString()}
-                                alt={image.alt}
-                                src={image.src}
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </Column>
+                          <span className={styles.studyBadge}>
+                            {index === 0
+                              ? "Bootcamp"
+                              : index === 1
+                                ? "Certification"
+                                : index === 2
+                                  ? "Currently learning"
+                                  : "Background"}
+                          </span>
+                        </Row>
+
+                        {institution.images && institution.images.length > 0 && (
+                          <div className={styles.studyImagesCompact}>
+                            {institution.images.map((image, imageIndex) => (
+                              <div key={`${institution.name}-image-${imageIndex}`} className={styles.studyImageThumb}>
+                                <Media
+                                  enlarge
+                                  radius="m"
+                                  aspectRatio="16 / 9"
+                                  objectFit="contain"
+                                  sizes={image.width.toString()}
+                                  alt={image.alt}
+                                  src={image.src}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </Column>
+                    </div>
                   ))}
                 </Column>
               </>
