@@ -335,55 +335,59 @@ export default function About() {
                     {about.work.title}
                   </Heading>
                 </RevealFx>
-                <Column fillWidth gap="l" marginBottom="40">
+
+                <Column fillWidth gap="20" marginBottom="40" className={styles.timelineList}>
                   {about.work.experiences.map((experience, index) => (
-                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                      <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                        <Text id={experience.company} variant="heading-strong-l">
-                          {experience.company}
-                        </Text>
-                        <Text variant="heading-default-xs" onBackground="neutral-weak">
-                          {experience.timeframe}
-                        </Text>
-                      </Row>
-                      <Text variant="body-default-s" marginBottom="m" className={styles.gradientText}>
-                        {experience.role}
-                      </Text>
-                      <Column as="ul" gap="16">
-                        {experience.achievements.map(
-                          (achievement: React.ReactNode, index: number) => (
-                            <Text
-                              as="li"
-                              variant="body-default-m"
-                              key={`${experience.company}-${index}`}
-                            >
+                    <div key={`${experience.company}-${experience.role}-${index}`} className={styles.timelineItem}>
+                      <div className={styles.timelineMarker} aria-hidden="true"></div>
+
+                      <Column fillWidth gap="12" className={styles.experiencePanel}>
+                        <Row fillWidth horizontal="between" vertical="start" gap="16" wrap>
+                          <Column gap="4">
+                            <Text id={experience.company} variant="heading-strong-l">
+                              {experience.company}
+                            </Text>
+                            <Text variant="body-default-s" className={styles.gradientText}>
+                              {experience.role}
+                            </Text>
+                          </Column>
+
+                          <Text variant="label-default-s" className={styles.datePill}>
+                            {experience.timeframe}
+                          </Text>
+                        </Row>
+
+                        <Column as="ul" gap="10" className={styles.cleanList}>
+                          {experience.achievements.map((achievement: React.ReactNode, index: number) => (
+                            <Text as="li" variant="body-default-m" key={`${experience.company}-${index}`}>
                               {achievement}
                             </Text>
-                          ),
+                          ))}
+                        </Column>
+
+                        {experience.images && experience.images.length > 0 && (
+                          <Row fillWidth paddingTop="m" gap="12" wrap>
+                            {experience.images.map((image, index) => (
+                              <Row
+                                key={index}
+                                border="neutral-medium"
+                                radius="m"
+                                minWidth={image.width}
+                                height={image.height}
+                              >
+                                <Media
+                                  enlarge
+                                  radius="m"
+                                  sizes={image.width.toString()}
+                                  alt={image.alt}
+                                  src={image.src}
+                                />
+                              </Row>
+                            ))}
+                          </Row>
                         )}
                       </Column>
-                      {experience.images && experience.images.length > 0 && (
-                        <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                          {experience.images.map((image, index) => (
-                            <Row
-                              key={index}
-                              border="neutral-medium"
-                              radius="m"
-                              minWidth={image.width}
-                              height={image.height}
-                            >
-                              <Media
-                                enlarge
-                                radius="m"
-                                sizes={image.width.toString()}
-                                alt={image.alt}
-                                src={image.src}
-                              />
-                            </Row>
-                          ))}
-                        </Row>
-                      )}
-                    </Column>
+                    </div>
                   ))}
                 </Column>
               </>
@@ -391,28 +395,34 @@ export default function About() {
 
             {about.studies.display && (
               <>
-                <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                  {about.studies.title}
-                </Heading>
-                <Column fillWidth gap="l" marginBottom="40">
+                <RevealFx translateY="8" fillWidth>
+                  <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+                    {about.studies.title}
+                  </Heading>
+                </RevealFx>
+
+                <Column fillWidth gap="16" marginBottom="40">
                   {about.studies.institutions.map((institution, index) => (
-                    <Column key={`${institution.name}-${index}`} fillWidth gap="8" marginBottom="32">
-                      <Text id={institution.name} variant="heading-strong-l">
-                        {institution.name}
-                      </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {institution.description}
-                      </Text>
+                    <Column key={`${institution.name}-${index}`} fillWidth gap="14" className={styles.studyPanel}>
+                      <Row fillWidth horizontal="between" vertical="start" gap="16" wrap>
+                        <Column gap="6">
+                          <Text id={institution.name} variant="heading-strong-l">
+                            {institution.name}
+                          </Text>
+                          <Text variant="body-default-m" onBackground="neutral-weak">
+                            {institution.description}
+                          </Text>
+                        </Column>
+
+                        <span className={styles.studyBadge}>
+                          {index === 0 ? "Bootcamp" : index === 1 ? "Certification" : "Education"}
+                        </span>
+                      </Row>
+
                       {institution.images && institution.images.length > 0 && (
-                        <Row fillWidth marginTop="20" gap="20" wrap>
+                        <div className={styles.studyImages}>
                           {institution.images.map((image, imageIndex) => (
-                            <Row
-                              key={`${institution.name}-image-${imageIndex}`}
-                              border="neutral-medium"
-                              radius="m"
-                              minWidth={image.width}
-                              height={image.height}
-                            >
+                            <div key={`${institution.name}-image-${imageIndex}`} className={styles.studyImageCard}>
                               <Media
                                 enlarge
                                 radius="m"
@@ -422,9 +432,9 @@ export default function About() {
                                 alt={image.alt}
                                 src={image.src}
                               />
-                            </Row>
+                            </div>
                           ))}
-                        </Row>
+                        </div>
                       )}
                     </Column>
                   ))}
