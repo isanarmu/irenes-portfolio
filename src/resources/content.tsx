@@ -60,8 +60,8 @@ const home: Home = {
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
+    </>
   ),
 };
 
@@ -130,7 +130,7 @@ const about: About = {
     institutions: [
       {
         name: "4Geeks Academy",
-        description: <>Full Stack Developer (2025–2026)</>,
+        description: <>Full Stack Software Development Bootcamp · React, Python, Flask, SQLAlchemy, PostgreSQL, REST APIs and Git (2025–2026)</>,
         images: [
           {
             src: "/images/gallery/Certificado 4geeks.jpg",
@@ -138,13 +138,24 @@ const about: About = {
             width: 16,
             height: 9,
           },
+        ],
+      },
+      {
+        name: "BIG School",
+        description: <>AI Development Fundamentals · From zero to production-oriented AI concepts (2026)</>,
+        images: [
           {
             src: "/images/gallery/Certificado-Irene-Sanchez-ia.jpg",
-            alt: "AI / development certificate",
+            alt: "AI development certificate",
             width: 16,
             height: 9,
           },
         ],
+      },
+      {
+        name: "Udemy",
+        description: <>Currently studying Python to strengthen backend development, scripting and problem-solving skills.</>,
+        images: [],
       },
       {
         name: "Centro de Estudios Aeronáuticos ESA Madrid",
