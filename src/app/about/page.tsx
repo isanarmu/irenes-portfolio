@@ -358,7 +358,7 @@ export default function About() {
                           </Text>
                         </Row>
 
-                        <Column as="ul" gap="10" className={styles.cleanList}>
+                        <Column as="ul" gap="12" className={styles.cleanList}>
                           {experience.achievements.map((achievement: React.ReactNode, index: number) => (
                             <Text as="li" variant="body-default-m" key={`${experience.company}-${index}`}>
                               {achievement}
