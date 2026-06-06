@@ -24,7 +24,7 @@ export async function generateMetadata() {
     title: about.title,
     description: about.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
+    image: `/api/og/generate?title=${encodeURIComponent(about.title)}&v=irene-2`,
     path: about.path,
   });
 }
