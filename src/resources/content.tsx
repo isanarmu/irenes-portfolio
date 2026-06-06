@@ -40,27 +40,21 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/api/og/generate?title=Irene%20S%C3%A1nchez%20%E2%80%93%20Full%20Stack%20Developer",
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Full Stack Developer focused on backend and full stack roles</>,
   featured: {
-    display: true,
-    title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured work
-        </Text>
-      </Row>
-    ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    display: false,
+    title: null,
+    href: "/work/trasteando",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
+      I'm Irene Sánchez, a Full Stack Developer trained in Python, Flask, React,
+      JavaScript and PostgreSQL. I build full stack projects with APIs,
+      authentication, databases and deployment workflows.
     </>
   ),
 };
