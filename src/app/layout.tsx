@@ -1,6 +1,7 @@
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
+import { ThemeFloatingButton } from "@/components/ThemeFloatingButton";
 
 import classNames from "classnames";
 
@@ -128,6 +129,7 @@ export default async function RootLayout({
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1} style={{ paddingTop: "80px" }}>
             <Flex horizontal="center" fillWidth minHeight="0">
               <RouteGuard>{children}</RouteGuard>
+              <ThemeFloatingButton />
             </Flex>
           </Flex>
           <Footer />
