@@ -439,9 +439,21 @@
         0 0 18px rgba(168, 85, 247, 0.35),
         0 0 8px rgba(99, 102, 241, 0.25);
 }
+.studyPanel {
+    color: #ffffff;
+}
 
+.studyPanel p,
+.studyPanel span {
+    color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.studyPanel [class*="neutral"] {
+    color: rgb(197, 197, 197) !important;
+}
 .experiencePanel,
 .studyPanel {
+    
     position: relative;
     isolation: auto;
     border: 1px solid rgba(168, 85, 247, 0.18);
