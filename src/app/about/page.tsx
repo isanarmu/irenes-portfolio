@@ -344,13 +344,14 @@ export default function About() {
 
                       <Column fillWidth gap="12" className={styles.experiencePanel}>
                         <Row fillWidth horizontal="between" vertical="start" gap="16" wrap>
-                          <Column gap="4">
+                          <Column gap="8">
                             <Text id={experience.company} variant="heading-strong-l">
                               {experience.company}
                             </Text>
-                            <Text variant="body-default-s" className={styles.gradientText}>
+
+                            <span className={styles.workRoleBadge}>
                               {experience.role}
-                            </Text>
+                            </span>
                           </Column>
 
                           <Text variant="label-default-s" className={styles.datePill}>

@@ -623,3 +623,49 @@
     border-color: rgba(168, 85, 247, 0.5);
 }
 // fin certificados fix bug
+/* Work Experience text + left index fixes */
+
+.experiencePanel {
+    color: #ffffff;
+}
+
+.experiencePanel p,
+.experiencePanel span,
+.experiencePanel li {
+    color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.experiencePanel [class*="neutral"] {
+    color: rgb(197, 197, 197) !important;
+}
+
+.experiencePanel [id] {
+    color: #ffffff !important;
+}
+
+.workRoleBadge {
+    width: fit-content;
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    line-height: 1;
+    font-weight: 600;
+    background:
+        linear-gradient(rgba(15, 16, 28, 0.84), rgba(15, 16, 28, 0.84)) padding-box,
+        linear-gradient(90deg, #a855f7, #6366f1) border-box;
+    border: 1px solid transparent;
+    color: #ffffff !important;
+}
+
+/* Light mode: only fix left index text */
+
+:global([data-theme="light"]) .fileTree,
+:global([data-theme="light"]) .treeLabel,
+:global([data-theme="light"]) .fileItem {
+    color: rgba(17, 24, 39, 0.82) !important;
+}
+
+:global([data-theme="light"]) .fileItem:hover {
+    color: #111827 !important;
+}
