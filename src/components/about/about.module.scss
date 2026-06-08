@@ -669,3 +669,15 @@
 :global([data-theme="light"]) .fileItem:hover {
     color: #111827 !important;
 }
+
+/* Light theme - keep email circle dark */
+
+:global([data-theme="light"]) .emailPillButton {
+    background: rgba(7, 8, 20, 0.86) !important;
+    border-color: rgba(168, 85, 247, 0.45) !important;
+    color: #ffffff !important;
+}
+
+:global([data-theme="light"]) .emailPillButton svg {
+    color: #ffffff !important;
+}

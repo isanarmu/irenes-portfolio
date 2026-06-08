@@ -130,3 +130,30 @@
     font-size: 1.05rem;
   }
 }
+/* Light theme - navbar text only */
+
+:global([data-theme="light"]) .navText {
+    color: #4f46e5!important;
+}
+
+:global([data-theme="light"]) .brand {
+    background: linear-gradient(90deg, #7c3aed 0%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+:global([data-theme="light"]) .navLink:hover .navText,
+:global([data-theme="light"]) .active .navText {
+    background: linear-gradient(90deg, #7c3aed 0%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+/* Light theme - keep header light when scrolling */
+
+:global([data-theme="light"]) .header.scrolled {
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(12px);
+  
+}
