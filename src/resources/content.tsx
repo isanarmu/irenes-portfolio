@@ -93,27 +93,36 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Volotea",
-        timeframe: "2022–2023 · France",
-        role: "Cabin Crew",
+        company: "SOCIALPULSE",
+        timeframe: "2026 – Present · Spain",
+        role: "Junior Full Stack Developer",
         achievements: [
-          <>Worked in international and high-pressure environments.</>,
           <>
-            Managed real-time problem solving, customer-facing situations, teamwork, and strict
-            operational procedures.
+            Developing and improving an AI-powered SaaS product using Next.js, React,
+            TypeScript, and Tailwind CSS within an existing codebase.
           </>,
-          <>1,100+ flight hours.</>,
+          <>
+            Delivering product features including lead capture forms, responsive pages,
+            legal content, CTAs, SEO improvements, and website optimization.
+          </>,
+          <>
+            Managing changes with Git and GitHub, validating production builds, and
+            documenting updates to maintain code quality and reliability.
+          </>,
         ],
       },
       {
-        company: "XPO",
-        timeframe: "2021 · Guadalajara, Spain",
-        role: "Warehouse Assistant",
+        company: "VOLOTEA",
+        timeframe: "2022–2023 · France",
+        role: "Cabin Crew",
         achievements: [
           <>
-            Worked with logistics, inventory control, and operational organization in a
-            high-volume environment.
+            Worked in international and high-pressure environments.
           </>,
+          <>
+            Managed real-time problem solving, customer-facing situations, teamwork, and strict operational procedures.
+          </>,
+          <>Completed more than 1,100 operational flight hours.</>,
         ],
       },
     ],
