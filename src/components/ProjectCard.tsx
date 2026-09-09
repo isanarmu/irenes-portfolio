@@ -1,20 +1,15 @@
 "use client";
 
-import {
-  AvatarGroup,
-  Carousel,
-  Column,
-  Flex,
-  Heading,
-  SmartLink,
-  Text,
-} from "@once-ui-system/core";
+import { Carousel } from "@once-ui-system/core";
+import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
   href: string;
   priority?: boolean;
+  number?: number;
   images: string[];
   title: string;
+  logo?: string;
   content: string;
   description: string;
   avatars: { src: string }[];
@@ -23,68 +18,54 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
+  number,
   images = [],
   title,
+  logo,
   content,
   description,
-  avatars,
   link,
-}) => {
-  return (
-    <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
-      <Flex
-        s={{ direction: "column" }}
-        fillWidth
-        paddingX="s"
-        paddingTop="12"
-        paddingBottom="24"
-        gap="l"
-      >
-        {title && (
-          <Flex flex={5}>
-            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
-            </Heading>
-          </Flex>
-        )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
-            {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
-              </Text>
+}) => (
+  <article className={styles.project}>
+    <div className={styles.heading}>
+      <span className="eyebrow">
+        {String(number ?? 1).padStart(2, "0")} /{" "}
+        {title === "SocialPulse" ? "SaaS · Team contribution" : "Full stack · Web application"}
+      </span>
+      <h2>
+        <a href={href}>
+          <span className={styles.titleWithLogo}>
+            {logo && (
+              <img className={styles.projectLogo} src={logo} alt="" width={52} height={52} />
             )}
-            <Flex gap="24" wrap>
-              {content?.trim() && (
-                <SmartLink
-                  suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={href}
-                >
-                  <Text variant="body-default-s">Read case study</Text>
-                </SmartLink>
-              )}
-              {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={link}
-                >
-                  <Text variant="body-default-s">View project</Text>
-                </SmartLink>
-              )}
-            </Flex>
-          </Column>
+            <span>{title}</span>
+          </span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </h2>
+    </div>
+    {images.length > 0 && (
+      <div className={styles.media}>
+        <Carousel
+          sizes="(max-width: 1120px) 100vw, 1120px"
+          items={images.map((image) => ({ slide: image, alt: `${title} screenshot` }))}
+        />
+      </div>
+    )}
+    <div className={styles.details}>
+      <p>{description}</p>
+      <div className={styles.links}>
+        {content.trim() && (
+          <a href={href}>
+            Read case study <span aria-hidden="true">↗</span>
+          </a>
         )}
-      </Flex>
-    </Column>
-  );
-};
+        {link && (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            Visit website <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </article>
+);

@@ -52,9 +52,9 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Irene Sánchez, a Full Stack Developer trained in Python, Flask, React,
-      JavaScript and PostgreSQL. I build full stack projects with APIs,
-      authentication, databases and deployment workflows.
+      I'm Irene Sánchez, a Full Stack Developer trained in Python, Flask, React, JavaScript and
+      PostgreSQL. I build full stack projects with APIs, authentication, databases and deployment
+      workflows.
     </>
   ),
 };
@@ -81,10 +81,10 @@ const about: About = {
     description: (
       <>
         I am a Full Stack Developer with training in Python, Flask, React, JavaScript, and
-        PostgreSQL. Before tech, I worked as Cabin Crew in aviation, logging more than 1,100
-        flight hours in international, high-pressure environments. That experience gave me strong
-        adaptability, communication skills, calm under pressure, and fast problem solving. I am
-        now looking for my first junior opportunity in full stack or backend development.
+        PostgreSQL. Before tech, I worked as Cabin Crew in aviation, logging more than 1,100 flight
+        hours in international, high-pressure environments. That experience gave me strong
+        adaptability, communication skills, calm under pressure, and fast problem solving. I am now
+        looking for my first junior opportunity in full stack or backend development.
       </>
     ),
   },
@@ -98,16 +98,16 @@ const about: About = {
         role: "Junior Full Stack Developer",
         achievements: [
           <>
-            Developing and improving an AI-powered SaaS product using Next.js, React,
-            TypeScript, and Tailwind CSS within an existing codebase.
+            Developing and improving an AI-powered SaaS product using Next.js, React, TypeScript,
+            and Tailwind CSS within an existing codebase.
           </>,
           <>
-            Delivering product features including lead capture forms, responsive pages,
-            legal content, CTAs, SEO improvements, and website optimization.
+            Delivering product features including lead capture forms, responsive pages, legal
+            content, CTAs, SEO improvements, and website optimization.
           </>,
           <>
-            Managing changes with Git and GitHub, validating production builds, and
-            documenting updates to maintain code quality and reliability.
+            Managing changes with Git and GitHub, validating production builds, and documenting
+            updates to maintain code quality and reliability.
           </>,
         ],
       },
@@ -116,11 +116,10 @@ const about: About = {
         timeframe: "2022–2023 · France",
         role: "Cabin Crew",
         achievements: [
+          <>Worked in international and high-pressure environments.</>,
           <>
-            Worked in international and high-pressure environments.
-          </>,
-          <>
-            Managed real-time problem solving, customer-facing situations, teamwork, and strict operational procedures.
+            Managed real-time problem solving, customer-facing situations, teamwork, and strict
+            operational procedures.
           </>,
           <>Completed more than 1,100 operational flight hours.</>,
         ],
@@ -133,7 +132,12 @@ const about: About = {
     institutions: [
       {
         name: "4Geeks Academy",
-        description: <>Full Stack Software Development Bootcamp · React, Python, Flask, SQLAlchemy, PostgreSQL, REST APIs and Git (2025–2026)</>,
+        description: (
+          <>
+            Full Stack Software Development Bootcamp · React, Python, Flask, SQLAlchemy, PostgreSQL,
+            REST APIs and Git (2025–2026)
+          </>
+        ),
         images: [
           {
             src: "/images/gallery/Certificado 4geeks.jpg",
@@ -145,7 +149,9 @@ const about: About = {
       },
       {
         name: "BIG School",
-        description: <>AI Development Fundamentals · From zero to production-oriented AI concepts (2026)</>,
+        description: (
+          <>AI Development Fundamentals · From zero to production-oriented AI concepts (2026)</>
+        ),
         images: [
           {
             src: "/images/gallery/Certificado-Irene-Sanchez-ia.jpg",
@@ -157,7 +163,12 @@ const about: About = {
       },
       {
         name: "Udemy",
-        description: <>Currently studying Python to strengthen backend development, scripting and problem-solving skills.</>,
+        description: (
+          <>
+            Currently studying Python to strengthen backend development, scripting and
+            problem-solving skills.
+          </>
+        ),
         images: [],
       },
       {
@@ -173,9 +184,14 @@ const about: About = {
     skills: [
       {
         title: "Frontend",
-        description: <>React, JavaScript, HTML, CSS, and Bootstrap.</>,
+        description: (
+          <>React, Next.js, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, and Bootstrap.</>
+        ),
         tags: [
           { name: "React" },
+          { name: "Next.js" },
+          { name: "TypeScript" },
+          { name: "Tailwind CSS" },
           { name: "JavaScript" },
           { name: "HTML" },
           { name: "CSS" },
@@ -200,6 +216,7 @@ const about: About = {
           { name: "PostgreSQL" },
           { name: "SQL" },
           { name: "SQLAlchemy" },
+          { name: "Firebase / Firestore" },
         ],
       },
       {
@@ -208,6 +225,8 @@ const about: About = {
         tags: [
           { name: "Git" },
           { name: "GitHub" },
+          { name: "Vercel" },
+          { name: "Resend" },
           { name: "VS Code" },
           { name: "Postman" },
           { name: "Google Maps API" },

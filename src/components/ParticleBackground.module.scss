@@ -1,0 +1,6 @@
+.background { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; --glow-x: 0px; --glow-y: 0px; }
+.glow { position: absolute; inset: -40px; background: radial-gradient(ellipse at -4% 88%, rgba(222, 238, 255, .5) 0, rgba(94, 151, 195, .16) 13%, transparent 32%), radial-gradient(ellipse at 104% 96%, rgba(182, 220, 255, .43) 0, rgba(77, 144, 187, .13) 16%, transparent 35%), radial-gradient(ellipse at 55% 105%, rgba(16, 93, 111, .12), transparent 50%); transform: translate3d(var(--glow-x), var(--glow-y), 0); }
+.canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+:global([data-theme="light"]) .glow { opacity: .2; }
+@media (max-width: 760px) { .glow { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .glow { transform: none; } }

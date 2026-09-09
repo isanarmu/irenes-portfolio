@@ -1,6 +1,7 @@
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
+import { ParticleBackground } from "@/components/ParticleBackground";
 import { ThemeFloatingButton } from "@/components/ThemeFloatingButton";
 
 import classNames from "classnames";
@@ -17,7 +18,6 @@ export async function generateMetadata() {
     path: home.path,
     image: home.image,
   });
-
 }
 
 export default async function RootLayout({
@@ -46,7 +46,7 @@ export default async function RootLayout({
               (function() {
                 try {
                   const root = document.documentElement;
-                  const defaultTheme = 'system';
+                  const defaultTheme = 'dark';
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
@@ -65,6 +65,7 @@ export default async function RootLayout({
                   // Apply default values
                   Object.entries(config).forEach(([key, value]) => {
                     root.setAttribute('data-' + key, value);
+                    localStorage.setItem('data-' + key, value);
                   });
                   
                   // Resolve theme
@@ -76,18 +77,11 @@ export default async function RootLayout({
                   };
                   
                   // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
+                  const savedTheme = localStorage.getItem('data-theme') || defaultTheme;
                   const resolvedTheme = resolveTheme(savedTheme);
                   root.setAttribute('data-theme', resolvedTheme);
+                  localStorage.setItem('data-theme', resolvedTheme);
                   
-                  // Apply any saved style overrides
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
                 } catch (e) {
                   console.error('Failed to initialize theme:', e);
                   document.documentElement.setAttribute('data-theme', 'dark');
@@ -107,26 +101,19 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
-          <div className="background-root">
-            <div className="background-blobs-top">
-              <div className="background-blob yellow" />
-              <div className="background-blob orange" />
-              <div className="background-blob green" />
-              <div className="background-blob purple" />
-              <div className="background-blob blue" />
-              <div className="background-blob pink" />
-            </div>
-            <div className="background-blobs-main">
-              <div className="background-blob main-purple" />
-              <div className="background-blob main-cyan" />
-              <div className="background-blob main-blue-left" />
-              <div className="background-blob main-blue-right" />
-            </div>
-            <div className="background-grid" />
-          </div>
-          <Flex fillWidth minHeight="16" s={{ hide: true }} />
+          <ParticleBackground />
+          <a className="skip-link" href="#main-content">
+            Skip to content
+          </a>
           <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1} style={{ paddingTop: "80px" }}>
+          <Flex
+            as="main"
+            id="main-content"
+            className="site-main"
+            fillWidth
+            horizontal="center"
+            flex={1}
+          >
             <Flex horizontal="center" fillWidth minHeight="0">
               <RouteGuard>{children}</RouteGuard>
               <ThemeFloatingButton />

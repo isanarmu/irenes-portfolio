@@ -1,0 +1,14 @@
+.project { width: 100%; padding: 32px 0 48px; border-top: 1px solid var(--portfolio-line); }
+.heading h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.1; margin: 24px 0 32px; }
+.heading a { display: flex; justify-content: space-between; gap: 20px; color: var(--portfolio-text); text-decoration: none; }
+.heading a:hover { color: var(--portfolio-muted); }
+.media { border: 1px solid var(--portfolio-line); border-radius: 4px; overflow: hidden; }
+.details { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 48px; margin-top: 24px; }
+.details p { margin: 0; color: var(--portfolio-muted); font-size: 1.0625rem; line-height: 1.8; max-width: 660px; }
+.links { display: flex; flex-wrap: wrap; align-items: start; justify-content: end; gap: 20px; padding-top: 5px; }
+.links a { color: var(--portfolio-text); font-size: .9375rem; }
+@media (max-width: 640px) { .details { grid-template-columns: 1fr; gap: 20px; } .links { justify-content: start; } }
+
+.titleWithLogo { display: inline-flex; align-items: center; gap: 16px; min-width: 0; }
+.projectLogo { width: 52px; height: 52px; flex-shrink: 0; object-fit: contain; border-radius: 10px; }
+@media (max-width: 640px) { .projectLogo { width: 38px; height: 38px; } .titleWithLogo { gap: 12px; } }

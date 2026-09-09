@@ -1,14 +1,6 @@
 import { notFound } from "next/navigation";
 import { getPosts } from "@/utils/utils";
-import {
-  Meta,
-  Schema,
-  Button,
-  Column,
-  Heading,
-  Media,
-  Text,
-} from "@once-ui-system/core";
+import { Meta, Schema, Button, Column, Heading, Media, Text } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
@@ -84,12 +76,21 @@ export default async function Project({
         }}
       />
 
-      <Column maxWidth="m" gap="12" horizontal="center" align="center" paddingTop="24" paddingBottom="8">
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+      <Column
+        maxWidth="m"
+        gap="12"
+        horizontal="center"
+        align="center"
+        paddingTop="24"
+        paddingBottom="8"
+      >
+        <Heading as="h1" variant="display-strong-m">
+          {post.metadata.title}
+        </Heading>
 
         {post.metadata.link && (
           <Button href={post.metadata.link} variant="primary" size="m">
-            Watch live
+            Visit website
           </Button>
         )}
       </Column>
