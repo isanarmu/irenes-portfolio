@@ -1,4 +1,4 @@
-import { Column, Heading, Meta, Schema, RevealFx } from "@once-ui-system/core";
+import { Meta, Schema } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
@@ -14,7 +14,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="m" paddingTop="24">
+    <div className="portfolio-page">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -28,14 +28,13 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <RevealFx translateY="4" fillWidth paddingBottom="12">
-        <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-          {work.title}
-        </Heading>
-      </RevealFx>
-      <RevealFx translateY="16" delay={0.2}>
-        <Projects />
-      </RevealFx>
-    </Column>
+      <p className="eyebrow">Portfolio / Selected work</p>
+      <h1 className="page-heading">Built with purpose.</h1>
+      <p className="page-intro">
+        From a full stack marketplace to contributions on a SaaS product. A closer look at what I
+        built and how it works.
+      </p>
+      <Projects />
+    </div>
   );
 }

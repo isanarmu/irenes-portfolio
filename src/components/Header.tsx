@@ -28,10 +28,10 @@ export const Header = () => {
   }, []);
 
   const isActiveLink = (href: string) => {
-  if (href === "/about") return pathname === "/" || pathname.startsWith("/about");
-  if (href === "/work") return pathname.startsWith("/work");
-  return false;
-};
+    if (href === "/about") return pathname === "/" || pathname.startsWith("/about");
+    if (href === "/work") return pathname.startsWith("/work");
+    return false;
+  };
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
@@ -40,11 +40,12 @@ export const Header = () => {
           Irene Sánchez
         </a>
 
-        <nav className={styles.desktopNav}>
+        <nav className={styles.desktopNav} aria-label="Main navigation">
           {navLinks.map(({ label, href }) => (
             <a
               key={label}
               href={href}
+              aria-current={isActiveLink(href) ? "page" : undefined}
               className={`${styles.navLink} ${isActiveLink(href) ? styles.active : ""}`}
             >
               <span className={styles.navText}>{label}</span>

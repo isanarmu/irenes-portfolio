@@ -1,41 +1,24 @@
 "use client";
 
+import { useTheme } from "@once-ui-system/core";
 import { useEffect, useState } from "react";
 import styles from "./ThemeFloatingButton.module.scss";
 
 export function ThemeFloatingButton() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("data-theme");
-
-    if (savedTheme === "light" || savedTheme === "dark") {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      return;
-    }
-
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("data-theme", "dark");
-  }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-
-    setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-    localStorage.setItem("data-theme", nextTheme);
-  };
-
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isDark = !mounted || resolvedTheme === "dark";
+  const label = isDark ? "Switch to light mode" : "Switch to dark mode";
   return (
     <button
       type="button"
       className={styles.themeButton}
-      onClick={toggleTheme}
-      aria-label="Toggle theme"
-      title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={label}
+      title={label}
     >
-      {theme === "dark" ? "☾" : "☀"}
+      <span aria-hidden="true">{isDark ? "☀" : "☾"}</span>
     </button>
   );
 }

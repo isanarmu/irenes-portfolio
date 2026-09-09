@@ -48,8 +48,9 @@ export type FontsConfig = {
 export type StyleConfig = {
   theme: Theme;
   neutral: NeutralColor;
-  brand: Schemes;
-  accent: Schemes;
+  // Once UI ships custom CSS schemes, although its Schemes union omits them.
+  brand: Schemes | "custom";
+  accent: Schemes | "custom";
   solid: SolidType;
   solidStyle: SolidStyle;
   border: BorderStyle;
