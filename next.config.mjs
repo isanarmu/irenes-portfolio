@@ -17,6 +17,16 @@ const nextConfig = {
         hostname: "www.google.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "socialpulse.es",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "image.thum.io",
+        pathname: "**",
+      },
     ],
   },
   sassOptions: {
