@@ -165,11 +165,26 @@ const about: About = {
         name: "Udemy",
         description: (
           <>
-            Currently studying Python to strengthen backend development, scripting and
-            problem-solving skills.
+            Python TOTAL con IA: de CERO a Programador Full en 16 días · 36.5 hours ·
+            Completed October 8, 2026. Instructors: Federico Garay and Escuela Directa.
+            {" "}
+            <a href="https://www.udemy.com/certificate/UC-fa854ba7-7c76-414d-8180-3364e0f72989/" target="_blank" rel="noopener noreferrer">
+              Verify certificate
+            </a>
+            {" · "}
+            <a href="/certificates/udemy-python-total.pdf" target="_blank" rel="noopener noreferrer">
+              View PDF
+            </a>
           </>
         ),
-        images: [],
+        images: [
+          {
+            src: "/images/gallery/udemy-python-total.jpg",
+            alt: "Irene Sánchez's Udemy certificate for Python TOTAL con IA, completed October 8, 2026",
+            width: 2400,
+            height: 1785,
+          },
+        ],
       },
       {
         name: "Centro de Estudios Aeronáuticos ESA Madrid",
